@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>航变客服辅助 AI Demo</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">AI Innovation Demo</p>
+      <h1>航变客服辅助</h1>
+      <p class="subtitle">前置感知航变风险 · 四维客户画像推断 · 三套方案与话术 · 最优路径智能排序</p>
+    </div>
+    <div class="hero-card">
+      <span>预警窗口</span>
+      <strong>提前 30 分钟</strong>
+      <small>模拟实时监控航班与订单履约影响</small>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel input-panel">
+      <div class="section-title">
+        <h2>场景变量输入</h2>
+        <p>可修改变量，观察 AI 决策变化</p>
+      </div>
+
+      <div class="scenario-buttons">
+        <button data-scenario="familyShow" class="secondary">亲子 + 演出延误</button>
+        <button data-scenario="cancelHighValue" class="secondary">高价值客户航班取消</button>
+        <button data-scenario="priceSensitive" class="secondary">价格敏感客户轻微延误</button>
+      </div>
+
+      <form id="sceneForm" class="form-grid">
+        <label>订单号<input id="orderId" value="T202606080001" /></label>
+        <label>航班号<input id="flightNo" value="MU1234" /></label>
+        <label>航班状态
+          <select id="flightStatus">
+            <option value="延误">延误</option>
+            <option value="取消">取消</option>
+            <option value="备降">备降</option>
+            <option value="提前">提前</option>
+          </select>
+        </label>
+        <label>延误/变化分钟数<input id="delayMinutes" type="number" value="90" min="0" /></label>
+        <label>距离接送/集合分钟数<input id="transferBufferMinutes" type="number" value="70" min="0" /></label>
+        <label>距离核心项目开始分钟数<input id="coreEventBufferMinutes" type="number" value="240" min="0" /></label>
+        <label>可替代航班数<input id="alternativeFlights" type="number" value="2" min="0" /></label>
+        <label>改签成本（元/人）<input id="changeCost" type="number" value="350" min="0" /></label>
+        <label>出行人数<input id="travelerCount" type="number" value="4" min="1" /></label>
+        <label>儿童人数<input id="childrenCount" type="number" value="1" min="0" /></label>
+        <label>老人人数<input id="elderCount" type="number" value="0" min="0" /></label>
+        <label>历史投诉次数<input id="complaintCount" type="number" value="1" min="0" /></label>
+        <label>会员等级
+          <select id="memberLevel">
+            <option>普通会员</option>
+            <option>黄金会员</option>
+            <option selected>高价值会员</option>
+          </select>
+        </label>
+        <label>历史航变偏好
+          <select id="historyPreference">
+            <option>偏好改签</option>
+            <option>偏好退票</option>
+            <option selected>偏好保行程</option>
+            <option>无历史记录</option>
+          </select>
+        </label>
+      </form>
+
+      <div class="checkbox-group">
+        <p>订单资源结构</p>
+        <label><input type="checkbox" id="hasFlight" checked /> 机票</label>
+        <label><input type="checkbox" id="hasTrain" /> 车票</label>
+        <label><input type="checkbox" id="hasHotel" checked /> 酒店</label>
+        <label><input type="checkbox" id="hasTicket" checked /> 景点门票</label>
+        <label><input type="checkbox" id="hasShow" checked /> 演出</label>
+        <label><input type="checkbox" id="hasTransfer" checked /> 接送/地接</label>
+      </div>
+    </section>
+
+    <section class="content">
+      <section class="panel">
+        <div class="section-title">
+          <h2>AI 决策结果</h2>
+          <p>基于航班、订单结构和历史行为实时推断</p>
+        </div>
+        <div id="summary" class="summary-grid"></div>
+      </section>
+
+      <section class="panel">
+        <div class="section-title">
+          <h2>客户画像四维推断</h2>
+          <p>时间敏感度 / 价格敏感度 / 行程复杂度 / 过往航变行为</p>
+        </div>
+        <div id="profile" class="profile-grid"></div>
+        <div id="tags" class="tags"></div>
+      </section>
+
+      <section class="panel">
+        <div class="section-title">
+          <h2>三套方案 + 话术 + 最优路径排序</h2>
+          <p>结合时间、成本、敏感性、行程复杂度自动打分</p>
+        </div>
+        <div id="solutions" class="solutions"></div>
+      </section>
+    </section>
+  </main>
+
+  <div id="toast" class="toast">话术已复制</div>
+  <script src="./app.js"></script>
+</body>
+</html>
