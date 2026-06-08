@@ -1,5 +1,7 @@
 # 航变客服辅助 AI Demo
 
+> **在线体验：** <https://osnso.github.io/flight-change-assistant-demo/>
+
 这是一个面向在线旅游平台团队游产品的航变客服辅助 MVP Demo。
 
 ## 功能特性
