@@ -11,12 +11,7 @@
     <div>
       <p class="eyebrow">AI Innovation Demo</p>
       <h1>航变客服辅助</h1>
-      <p class="subtitle">前置感知航变风险 · 四维客户画像推断 · 三套方案与话术 · 最优路径智能排序</p>
-    </div>
-    <div class="hero-card">
-      <span>预警窗口</span>
-      <strong>提前 30 分钟</strong>
-      <small>模拟实时监控航班与订单履约影响</small>
+      <p class="subtitle">航变场景分类处理 · 对商对客双轨方案 · 备选交通一键预订</p>
     </div>
   </header>
 
@@ -48,6 +43,9 @@
         <label>距离接送/集合分钟数<input id="transferBufferMinutes" type="number" value="70" min="0" /></label>
         <label>距离核心项目开始分钟数<input id="coreEventBufferMinutes" type="number" value="240" min="0" /></label>
         <label>可替代航班数<input id="alternativeFlights" type="number" value="2" min="0" /></label>
+        <label>出发城市<input id="departCity" value="上海" /></label>
+        <label>到达城市<input id="arriveCity" value="北京" /></label>
+        <label>目的地高铁站<input id="highSpeedRailStation" value="北京南" /></label>
         <label>改签成本（元/人）<input id="changeCost" type="number" value="350" min="0" /></label>
         <label>出行人数<input id="travelerCount" type="number" value="4" min="1" /></label>
         <label>儿童人数<input id="childrenCount" type="number" value="1" min="0" /></label>
@@ -101,10 +99,19 @@
 
       <section class="panel">
         <div class="section-title">
-          <h2>三套方案 + 话术 + 最优路径排序</h2>
-          <p>结合时间、成本、敏感性、行程复杂度自动打分</p>
+          <h2>航变场景分类 · 对商对客双轨方案</h2>
+          <p>按航变情形分类，对商协调与对客服务双轨推荐</p>
         </div>
-        <div id="solutions" class="solutions"></div>
+        <div id="sceneCategory" class="scene-category"></div>
+        <div id="dualSolutions" class="dual-solutions"></div>
+      </section>
+
+      <section class="panel">
+        <div class="section-title">
+          <h2>备选交通方案</h2>
+          <p>高铁 / 高铁+飞机联运，客服可直接为客人预订</p>
+        </div>
+        <div id="altTransport" class="alt-transport"></div>
       </section>
     </section>
   </main>
